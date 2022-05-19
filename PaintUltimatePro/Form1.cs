@@ -37,25 +37,24 @@ namespace PaintUltimatePro
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            var color = Brushes.Black;
-            int size = brushBox.SelectedIndex + 1;
-
-            if (colourBox.SelectedIndex==0)
-            {
-                 color = Brushes.Black;
-            }
-            else if(colourBox.SelectedIndex == 1)
-            {
-                 color = Brushes.Red;
-            }
-            else
-            {
-                 color = Brushes.Blue;
-            }
-            
-
             if (_moving==true)
             {
+                var color = Brushes.Black;
+
+                if (colourBox.SelectedIndex == 0)
+                {
+                    color = Brushes.Black;
+                }
+                else if (colourBox.SelectedIndex == 1)
+                {
+                    color = Brushes.Red;
+                }
+                else
+                {
+                    color = Brushes.Blue;
+                }
+
+                int size = brushBox.SelectedIndex + 1;
                 var graphics = pictureBox.CreateGraphics();
                 graphics.FillRectangle(color, e.X, e.Y, size, size);
             }
